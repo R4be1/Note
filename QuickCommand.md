@@ -1,6 +1,11 @@
 ## Quick and easy to use fscan.
 ```
 curl -#L https://github.com/shadow1ng/fscan/releases/download/1.8.3/fscan -o /tmp/fscan && chmod +x /tmp/fscan && (nohup /tmp/fscan -h /24 -o /tmp/results.txt > /dev/null 2>&1 &) && echo FscanRunning
+
+ip a| grep -oE "\b(10|172\.(1[6-9]|2\d|3[01])|192\.168)\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,3}\b" | xargs -I {} bash -c "nohup ~/Pentest/Intranet/fscan -h {} -o /tmp/results.txt > /dev/null 2>&1 &"
+
+curl -#L https://github.com/shadow1ng/fscan/releases/download/1.8.3/fscan -o /tmp/fscan && chmod +x /tmp/fscan && (ip a| grep -oE "\b(10|172\.(1[6-9]|2\d|3[01])|192\.168)\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,3}\b" | xargs -I {} bash -c "nohup ~/Pentest/Intranet/fscan -h {} -o /tmp/results.txt > /dev/null 2>&1 &") && echo FscanRunning
+
 ```
 
 ## Quick and easy to use Masscan -> results.txt`ip:port`
